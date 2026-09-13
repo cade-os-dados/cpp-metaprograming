@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function() {
+            try {
+                if (localStorage.getItem('sidebar_collapsed') === 'true') {
+                    document.documentElement.classList.add('sidebar-collapsed-init');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="bbef37c744b8763b5056b11ff74f30dfc1f3e494824da649fb62a3ce0ae3e197.css">
+    <script src="4f6087f0a812a62b02b571a96957510f644f9cc0d092fca38f45d922f203e2f4.js" defer></script>
+    <title>Leaf 🍃</title>
+</head>
+<body>
+    <div class="reading-progress-bar" id="reading-progress-bar" data-page-index="1" data-total-pages="4" data-section-offset="4" data-section-count="4" data-total-sections="10"></div>
+    <div class="site-container">
+        <aside class="sidebar">
+            <h2>Navegação 🚢</h2>
+            <nav class="sidebar-nav">
+                <ul class="sidebar-list">
+
+                    <li class="sidebar-item has-submenu " data-page="01-introduction-EN.html">
+                        <div class="sidebar-item-header" onclick="toggleSubmenu(event, this)">
+                            <a href="./01-introduction-EN.html" class="">introduction</a>
+                        </div>
+                        <ul class="submenu" style="display: none;">
+            <li class="nav-level-1"><a href="01-introduction-EN.html#introduction">Introduction</a></li>
+            <li class="nav-level-2"><a href="01-introduction-EN.html#requirements">Requirements</a></li>
+            <li class="nav-level-2"><a href="01-introduction-EN.html#scope">Scope</a></li>
+            <li class="nav-level-2"><a href="01-introduction-EN.html#reader-warning">⚠️ Reader Warning</a></li>
+        </ul>
+                    </li>
+
+                    <li class="sidebar-item has-submenu open" data-page="02-templates-EN.html">
+                        <div class="sidebar-item-header" onclick="toggleSubmenu(event, this)">
+                            <a href="./02-templates-EN.html" class="active-page">templates</a>
+                        </div>
+                        <ul class="submenu" style="display: block;">
+            <li class="nav-level-1"><a href="02-templates-EN.html#templates">Templates</a></li>
+            <li class="nav-level-2"><a href="02-templates-EN.html#tipos-genricos">Tipos genéricos</a></li>
+            <li class="nav-level-2"><a href="02-templates-EN.html#tamanho-genrico">Tamanho genérico</a></li>
+            <li class="nav-level-2"><a href="02-templates-EN.html#templates-para-structs">Templates para structs</a></li>
+        </ul>
+                    </li>
+
+                    <li class="sidebar-item  " data-page="03-parameter-pack-EN.html">
+                        <div class="sidebar-item-header" >
+                            <a href="./03-parameter-pack-EN.html" class="">parameter-pack</a>
+                        </div>
+                        
+                    </li>
+
+                    <li class="sidebar-item  " data-page="04-fold-expression-EN.html">
+                        <div class="sidebar-item-header" >
+                            <a href="./04-fold-expression-EN.html" class="">fold-expression</a>
+                        </div>
+                        
+                    </li>
+</ul>
+            </nav>
+        </aside>
+        <div class="content-wrapper">
+            <nav class="nav-wide-wrapper" aria-label="Navegação da página">
+        <a rel="prev" href="./01-introduction-EN.html" class="nav-chapters previous" title="Anterior: introduction" aria-label="Página anterior: introduction">
+                        <svg class="nav-arrow" viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </a>
+        <a rel="next" href="./03-parameter-pack-EN.html" class="nav-chapters next" title="Próximo: parameter-pack" aria-label="Próxima página: parameter-pack">
+                        <svg class="nav-arrow" viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+    </nav>
+            <header class="collapsible-header" id="collapsible-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" type="button" aria-label="Abrir menu" title="Alternar sidebar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="header-center">
+                    <h1 class="header-title">Leaf Book 🌿</h1>
+                </div>
+                <div class="header-right">
+                    <div class="lang-toggle" role="group" aria-label="Trocar idioma"><span class="lang-btn active">EN</span><span class="lang-sep">|</span><a href="./02-templates-PT.html" class="lang-btn">PT</a></div>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="header-btn" title="GitHub" aria-label="GitHub">
+                        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </header>
+            <main class="content">
+                <article class="markdown-body">
+                    <!-- Ficará em portugues mesmo, pois terei que fazer ajustes, por enquanto ainda o livro está em desenvolvimento, mas tenho que manter os arquivos em ingles para nao falhar o gerador estático e também para testar se vai renderizar no github pages -->
+<h1 id="templates">Templates</h1>
+<p>Quando falamos em metaprogramação em C++, estamos falando de templates. A partir de um template, o compilador pode gerar código para diferentes tipos de dados, evitando a necessidade de reescrever a mesma função para tipos diferentes.</p>
+<h2 id="tipos-genricos">Tipos genéricos</h2>
+<p>Abaixo está o exemplo mais simples possível:</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code class="language-cpp"><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">template</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">typename</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> soma</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#E36209;--shiki-dark:#FFAB70"> elemento1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#E36209;--shiki-dark:#FFAB70"> elemento2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> elemento1 </span><span style="color:#D73A49;--shiki-dark:#F97583">+</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> elemento2;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    float</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> x </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> soma</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0.1</span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">0.2</span><span style="color:#D73A49;--shiki-dark:#F97583">f</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> y </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> soma</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1789339600779-84136">Copied!</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="template&lt;typename T&gt;
+T soma(T elemento1, T elemento2)
+{
+    return elemento1 + elemento2;
+}
+
+int main(void)
+{
+    float x = soma(0.1f,0.2f);
+    int y = soma(1,2);
+}
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1789339600779-84136" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">Copy</button></div></pre>
+<p>Quando declaramos a keyword <code>typename</code> estamos dizendo ao compilador para aceitar qualquer tipo, o qual nomeamos <code>T</code>, com base neste tipo, ambos os argumentos <code>elemento1</code> e <code>elemento2</code> devem ser do mesmo tipo (T) e retornar também o tipo T.</p>
+<h2 id="tamanho-genrico">Tamanho genérico</h2>
+<p>Templates não se tratam somente de tipos genéricos, podemos definir tamanhos genéricos também.</p>
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code class="language-cpp"><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">#include</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> &#x3C;iostream></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">template</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">size_t</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> N</span><span style="color:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> soma_vetor</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#E36209;--shiki-dark:#FFAB70"> vec</span><span style="color:#24292E;--shiki-dark:#E1E4E8">[N])</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> soma </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    for</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">size_t</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> k </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8">; k </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> N; k</span><span style="color:#D73A49;--shiki-dark:#F97583">++</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        soma </span><span style="color:#D73A49;--shiki-dark:#F97583">+=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vec[k];</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> soma;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">int</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> main</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">void</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vec1[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> vec2[</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">] </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="color:#005CC5;--shiki-dark:#79B8FF">1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">3</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">4</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">6</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">7</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">8</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">9</span><span style="color:#24292E;--shiki-dark:#E1E4E8">,</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#24292E;--shiki-dark:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    std</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "Soma do vetor de tamanho 6: "</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> soma</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(vec1) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::endl;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    std</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::cout </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "Soma do vetor de tamanho 10: "</span><span style="color:#D73A49;--shiki-dark:#F97583"> &#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> soma</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(vec2) </span><span style="color:#D73A49;--shiki-dark:#F97583">&#x3C;&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> std</span><span style="color:#24292E;--shiki-dark:#E1E4E8">::endl;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1789339601131-14962">Copied!</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="#include &lt;iostream&gt;
+
+template&lt;size_t N&gt;
+int soma_vetor(int vec[N])
+{
+    int soma = 0;
+    for(size_t k = 0; k &lt; N; k++)
+    {
+        soma += vec[k];
+    }
+    return soma;
+}
+
+int main(void)
+{
+    int vec1[6] = {1,2,3,4,5,6};
+    int vec2[10] = {1,2,3,4,5,6,7,8,9,10};
+
+    std::cout &lt;&lt; &quot;Soma do vetor de tamanho 6: &quot; &lt;&lt; soma(vec1) &lt;&lt; std::endl;
+    std::cout &lt;&lt; &quot;Soma do vetor de tamanho 10: &quot; &lt;&lt; soma(vec2) &lt;&lt; std::endl;
+}
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1789339601131-14962" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">Copy</button></div></pre>
+<p>Como os tamanhos dos vetores são conhecidos em tempo de compilação (são arrays de tamanho fixo), então o compilador consegue identificar o tamanho do vetor e substituir no valor de N, fazendo o loop rodar até o último elemento de cada vetor.</p>
+<p>Repare como os templates reduzem código duplicado, agora temos uma função que funciona para qualquer tamanho de vetor, sem precisar passar o tamanho como parâmetro (como costumamos fazer em C) e sem ter que gerar um loop diferente para cada vetor.</p>
+<!--
+    Depois colocar explicar o exemplo abaixo
+
+    template<size_t N>
+    std::string get_initials(std::string name)
+    {
+        std::string initials;
+        for(size_t k = 0; k < N; k++)
+        {
+            initials.push_back(name[k]);
+        }
+        return initials;
+    }
+-->
+<h2 id="templates-para-structs">Templates para structs</h2>
+<p>Podemos definir structs usando templates também, o caso mais emblemático é de uma lista ligada:</p>
+<!--
+Depois melhoramos os exemplos, lista ligada já tem na std, então pode parecer um exemplo sem muito significado
+-->
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code class="language-cpp"><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">template</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">typename</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">></span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">struct</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> LinkedList</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    T</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> data;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    LinkedList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">></span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> next;</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    LinkedList</span><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#6F42C1;--shiki-dark:#B392F0">T</span><span style="color:#24292E;--shiki-dark:#E1E4E8">></span><span style="color:#D73A49;--shiki-dark:#F97583">*</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> previous;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1789339601228-7899">Copied!</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="template&lt;typename T&gt;
+struct LinkedList
+{
+    T data;
+    LinkedList&lt;T&gt;* next;
+    LinkedList&lt;T&gt;* previous;
+}
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1789339601228-7899" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">Copy</button></div></pre>
+
+                </article>
+                <footer class="pagination">
+                    <span> Utilize as setas ⬅️➡️ do teclado para navegar as páginas ou clique na seta nos cantos esquerdo/direto da tela. </span>
+                </footer>
+            </main>
+            <footer class="lowerbar">
+                <span>Powered by🌿LeafGen</span>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

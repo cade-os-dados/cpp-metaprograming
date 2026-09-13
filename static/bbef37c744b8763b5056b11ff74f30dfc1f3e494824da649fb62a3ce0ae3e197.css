@@ -1,0 +1,823 @@
+.sidebar-list, .sidebar-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar-item {
+    margin-bottom: 4px;
+}
+
+.sidebar-item-header {
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-item-header:hover {
+    background-color: #f1f3f5;
+}
+
+.sidebar-item-header a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    width: 100%;
+    background-color: transparent !important;
+    font-size: 1.2rem !important; /* Força o tamanho em todos */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Destaca a página ativa */
+.sidebar-item-header a.active-page {
+    color: #0366d6;
+    font-weight: 600;
+    /* font-size: 1.5rem; */
+}
+
+/* Recuo (Tab) das seções internas para ficarem mais à direita que o título */
+.submenu {
+    padding-left: 20px; /* Controla o quanto vai para a direita */
+    margin-top: 4px;
+    margin-bottom: 8px;
+    border-left: 2px solid #e1e4e8; /* Linha guia elegante opcional */
+}
+
+.submenu li {
+    margin: 4px 0;
+}
+
+.submenu li a {
+    font-size: 0.85rem;
+    color: #586069;
+    text-decoration: none;
+    display: block;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: color 0.15s ease, font-weight 0.15s ease, background-color 0.15s ease;
+}
+
+/* Hover das subseções comuns (fundo translúcido mais encorpado e elegante) */
+.submenu li a:hover {
+    color: #0366d6;
+    background-color: rgba(3, 102, 214, 0.08); /* Azul com 8% de opacidade */
+    border-radius: 4px;
+    transform: translateX(2px); /* Pequeno efeito de movimento para a direita */
+    transition: all 0.2s ease;
+}
+
+/* Destaque da seção ativa (completamente independente e diferenciada) */
+.submenu li a.active-section {
+    color: #0250a8;
+    font-weight: 600;
+    background-color: rgba(0, 229, 255, 0.08); /* Ciano/Turquesa translúcido super estiloso */
+    border-left: 3px solid #00b4d8; /* Uma barrinha lateral para ancorar o olhar */
+    padding-left: 8px; /* Compensa o espaço da bordinha */
+    border-radius: 0 4px 4px 0;
+}
+
+/* Opcional: Indicador discreto de que o item tem subseções (um sinalzinho de + ou seta sutil) */
+.sidebar-item.has-submenu > .sidebar-item-header::after {
+    content: '+';
+    font-weight: bold;
+    color: #8c959f;
+    margin-left: auto;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.sidebar-item.has-submenu.open > .sidebar-item-header::after {
+    content: '-';
+}
+
+:root {
+    --bg: #ffffff;
+    --text: #24292f;
+    --border: #e1e4e8;
+    --sidebar-bg: #f6f8fa;
+    --link: #0969da;
+    --code-bg: #f2f5fc;
+    --btn-bg: #f3f4f6;
+    --btn-hover: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.site-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+}
+
+/* Collapsible Header (Hide on scroll) */
+.collapsible-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 50px;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    transition: transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.collapsible-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 40px;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 12px;
+}
+
+.header-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 0;
+}
+
+.header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.header-btn:hover {
+    background-color: var(--btn-hover);
+    color: var(--link);
+}
+
+/* Language Switcher (Feature [2]) */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--btn-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    gap: 4px;
+    user-select: none;
+    height: 32px;
+}
+
+.lang-toggle .lang-btn {
+    padding: 3px 7px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #57606a;
+    font-size: 0.78rem;
+    line-height: 1;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.lang-toggle .lang-btn:hover:not(.active) {
+    color: var(--link);
+    background-color: var(--btn-hover);
+}
+
+.lang-toggle .lang-btn.active {
+    background-color: #ffffff;
+    color: var(--link);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    cursor: default;
+}
+
+.lang-toggle .lang-sep {
+    color: var(--border);
+    font-size: 0.75rem;
+    user-select: none;
+}
+
+/* Combobox (β > 2) */
+.lang-select-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--btn-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 24px 4px 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    outline: none;
+    height: 32px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2357606a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+}
+
+.lang-select:hover {
+    background-color: var(--btn-hover);
+    border-color: #cbd5e1;
+}
+
+.lang-select:focus {
+    border-color: var(--link);
+    box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.2);
+}
+
+/* Sidebar */
+aside.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-shrink: 0;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        width 300ms ease,
+        padding 300ms ease,
+        opacity 200ms ease,
+        border-color 300ms ease,
+        visibility 300ms ease;
+    z-index: 101;
+}
+
+html.sidebar-collapsed-init aside.sidebar,
+aside.sidebar.closed {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    padding-left: 0;
+    padding-right: 0;
+    width: 0px;
+    border-color: transparent;
+}
+
+html.sidebar-collapsed-init aside.sidebar {
+    transition: none !important;
+}
+
+html.sidebar-collapsed-init aside.sidebar ~ .content-wrapper .lowerbar,
+html.sidebar-collapsed-init aside.sidebar ~ .content-wrapper .nav-chapters.previous {
+    transition: none !important;
+    left: 0 !important;
+}
+
+.sidebar-toggle {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    background: var(--sidebar-bg);
+    color: var(--text);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.sidebar-toggle span {
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.sidebar-toggle:hover {
+    background-color: var(--btn-hover);
+}
+
+.sidebar-toggle-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.sidebar h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #57606a;
+    margin-bottom: 12px;
+    padding-left: 8px;
+    white-space: nowrap;
+    min-width: 248px;
+}
+
+.sidebar-nav {
+    min-width: 248px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 4px;
+}
+
+.sidebar-nav a {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--link);
+}
+
+.sidebar-nav .nav-level-1 { font-weight: 600; padding-left: 8px; }
+.sidebar-nav .nav-level-2 { font-weight: 500; padding-left: 18px; font-size: 0.85rem; }
+.sidebar-nav .nav-level-3 { font-weight: 400; padding-left: 28px; font-size: 0.8rem; color: #57606a; }
+.sidebar-nav .nav-level-4, 
+.sidebar-nav .nav-level-5, 
+.sidebar-nav .nav-level-6 { padding-left: 36px; font-size: 0.78rem; color: #57606a; }
+
+/* Conteúdo Principal */
+main.content {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 48px 60px 48px;
+    display: flex;
+    flex-direction: column;
+}
+
+.markdown-body {
+    flex: 1;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    line-height: 1.25;
+    scroll-margin-top: 24px;
+}
+
+.markdown-body h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; margin-top: 0; }
+.markdown-body h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+.markdown-body h3 { font-size: 1.25rem; }
+.markdown-body p, .markdown-body ul, .markdown-body ol { margin-bottom: 1em; }
+.markdown-body ul, .markdown-body ol { padding-left: 2em; }
+.markdown-body a { color: var(--link); text-decoration: none; }
+.markdown-body a:hover { text-decoration: underline; }
+
+/* Bloco de Código com Shiki */
+pre {
+    background-color: var(--code-bg) !important;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+    font-size: 0.9em;
+}
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:not(pre) > code {
+    background-color: rgba(175, 184, 193, 0.2);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 85%;
+}
+
+/* {BEGIN} markdown-it-copy classes */
+.m-mdic-copy-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    z-index: 10;
+}
+
+/*
+* O plugin adiciona o wrapper dentro do <pre>.
+* Como o <pre> é o nosso "container", precisamos
+* garantir que ele seja uma referência para position:absolute.
+*/
+pre:has(.m-mdic-copy-wrapper) {
+    position: relative;
+}
+
+/* ─────────────────────────────────────────────
+BOTÃO
+───────────────────────────────────────────── */
+
+.m-mdic-copy-wrapper .u-mdic-copy-btn {
+    appearance: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    min-width: 64px;
+    height: 32px;
+    padding: 0 11px;
+
+    border: 1px solid rgba(27, 31, 36, 0.15);
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #24292f;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 1px 2px rgba(27, 31, 36, 0.08),
+        0 1px 3px rgba(27, 31, 36, 0.06);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        box-shadow 150ms ease,
+        transform 100ms ease;
+}
+
+.m-mdic-copy-wrapper .u-mdic-copy-btn:hover {
+    background: #ffffff;
+    border-color: rgba(27, 31, 36, 0.25);
+
+    box-shadow:
+        0 2px 5px rgba(27, 31, 36, 0.10),
+        0 4px 10px rgba(27, 31, 36, 0.06);
+}
+
+.m-mdic-copy-wrapper .u-mdic-copy-btn:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 1px 2px rgba(27, 31, 36, 0.08);
+}
+
+.m-mdic-copy-wrapper .u-mdic-copy-btn:focus-visible {
+    outline: 2px solid rgba(9, 105, 218, 0.45);
+    outline-offset: 2px;
+}
+
+
+/* ─────────────────────────────────────────────
+NOTIFICAÇÃO
+───────────────────────────────────────────── */
+
+.m-mdic-copy-wrapper .u-mdic-copy-notify {
+    opacity: 0;
+}
+
+/*
+.m-mdic-copy-wrapper .u-mdic-copy-notify {
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    padding: 6px 9px;
+
+    border: 1px solid rgba(27, 31, 36, 0.12);
+    border-radius: 6px;
+
+    background: #1f2328;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+
+    white-space: nowrap;
+    pointer-events: none;
+
+    box-shadow:
+        0 3px 8px rgba(27, 31, 36, 0.18);
+
+    /*
+    * O plugin usa display:none/block.
+    * Por isso não tentamos controlar visibility aqui.
+    */
+}
+*/
+
+/* Setinha do "Copied!" */
+
+.m-mdic-copy-wrapper .u-mdic-copy-notify::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    right: -4px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #1f2328;
+
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.m-mdic-copy-wrapper .u-mdic-copy-btn.is-copied {
+    background: #f0fff4;
+    border-color: #b7ebc6;
+    color: #188038;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 2px 6px rgba(24, 128, 56, 0.10);
+
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease,
+        transform 100ms ease;
+}
+
+.m-mdic-copy-wrapper .u-mdic-copy-btn.is-copied:hover {
+    background: #e8f8ed;
+    border-color: #a5dfb6;
+    color: #176f35;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.05),
+        0 2px 6px rgba(24, 128, 56, 0.12);
+}
+
+/* ─────────────────────────────────────────────
+MOBILE
+───────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .m-mdic-copy-wrapper {
+        top: 8px;
+        right: 8px;
+    }
+
+    .m-mdic-copy-wrapper .u-mdic-copy-btn {
+        height: 30px;
+        min-width: 58px;
+        padding: 0 9px;
+        font-size: 11px;
+    }
+
+    .m-mdic-copy-wrapper .u-mdic-copy-notify {
+        display: none !important;
+    }
+}
+
+/* {END} markdown-it-copy classes */
+
+/* Paginação (Anterior / Próximo) */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.pagination span {
+    text-align: center;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #57606a;
+    justify-content: center; /* Centraliza horizontalmente */
+    flex-grow: 1;            /* Faz o span ocupar o espaço livre entre os lados */
+}
+
+/* Navegação Lateral (Estilo The Rust Programming Language / mdBook) */
+.nav-wide-wrapper {
+    pointer-events: none;
+}
+
+.nav-chapters {
+    position: fixed;
+    top: 50px;
+    bottom: 26px;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8c959f;
+    background-color: transparent;
+    text-decoration: none;
+    pointer-events: auto;
+    z-index: 90;
+    opacity: 0.4;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        opacity 0.2s ease,
+        left 300ms ease;
+}
+
+.nav-chapters:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: var(--link);
+    opacity: 1;
+}
+
+.nav-chapters.previous {
+    left: 280px;
+}
+
+aside.sidebar.closed ~ .content-wrapper .nav-chapters.previous {
+    left: 0;
+}
+
+html.header-hidden .nav-chapters.previous,
+html.header-hidden .nav-chapters.next {
+    top: 0px !important;
+}
+
+.nav-chapters.next {
+    right: 0;
+}
+
+.nav-chapters .nav-arrow {
+    transition: transform 0.2s ease;
+}
+
+.nav-chapters.previous:hover .nav-arrow {
+    transform: translateX(-4px);
+}
+
+.nav-chapters.next:hover .nav-arrow {
+    transform: translateX(4px);
+}
+
+/* Barra de Progresso de Leitura (Bottom) */
+.reading-progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #0969da, #00b4d8);
+    z-index: 1000;
+    transition: width 0.15s ease-out;
+    pointer-events: none;
+}
+
+/* Lowerbar (Fixed footer de créditos) */
+.lowerbar {
+    position: fixed;
+    bottom: 0;
+    left: 280px;
+    right: 0;
+    height: 26px;
+    background-color: var(--bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #57606a;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.92);
+    user-select: none;
+    transition: left 300ms ease;
+}
+
+aside.sidebar.closed ~ .content-wrapper .lowerbar {
+    left: 0;
+}
+
+.lowerbar span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 12px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .site-container {
+        flex-direction: column;
+    }
+    aside.sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    aside.sidebar.closed {
+        display: none;
+        height: 0;
+        width: 100%;
+        padding: 0;
+        border-bottom: none;
+    }
+    .sidebar h2,
+    .sidebar-nav {
+        min-width: 0;
+    }
+    .nav-chapters {
+        display: none;
+    }
+    .collapsible-header {
+        padding: 0 16px;
+    }
+    main.content {
+        padding: 24px 16px 48px 16px;
+    }
+    .lowerbar,
+    aside.sidebar.closed ~ .content-wrapper .lowerbar {
+        left: 0;
+        font-size: 0.7rem;
+        height: 24px;
+    }
+}

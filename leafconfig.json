@@ -1,0 +1,40 @@
+{
+    "bookTitle": "Leaf Book 🌿",
+    "pageTitle": "Leaf 🍃",
+    "githubLink": "https://github.com",
+    "sidebarTitle": "Navegação 🚢",
+    "bookPagesNames": [
+        {
+            "pageOrder": 1,
+            "pageNames": {
+                "EN": "introduction",
+                "PT": "introducao"
+            }
+        },
+        {
+            "pageOrder": 2,
+            "pageNames": {
+                "EN": "templates",
+                "PT": "templates"
+            }
+        },
+        {
+            "pageOrder": 3,
+            "pageNames": {
+                "EN": "parameter-pack",
+                "PT": "parameter-pack"
+            }
+        },
+        {
+            "pageOrder": 4,
+            "pageNames": {
+                "EN": "fold-expression",
+                "PT": "fold-expression"
+            }
+        }
+    ],
+    "languages": {
+        "en": "EN",
+        "pt": "PT"
+    }
+}
